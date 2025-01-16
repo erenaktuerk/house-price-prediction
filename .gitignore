@@ -1,0 +1,10 @@
+# Ignore data files
+#/data/
+
+# Python bytecode files
+*.pyc
+*.pyo
+_pycache_/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
