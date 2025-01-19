@@ -42,12 +42,12 @@ def plot_feature_importance(model, feature_names):
     - model: Trained model (LinearRegression or RandomForest)
     - feature_names: List of feature names
     """
-    # Konvertiere feature_names in eine Liste von Spaltennamen, falls nötig
+    # convert feature_names into a list of column names, if necessary
     if isinstance(feature_names, pd.DataFrame):
         feature_names = feature_names.columns.tolist()
 
     try:
-        # Für lineare Modelle
+        # for linear models
         feature_importance = pd.Series(model.coef_, index=feature_names).sort_values(ascending=False)
         plt.figure(figsize=(10, 6))
         feature_importance.plot(kind='bar')
@@ -56,7 +56,7 @@ def plot_feature_importance(model, feature_names):
         plt.ylabel("Coefficient Value")
         plt.show()
     except AttributeError:
-        # Für Modelle wie RandomForest
+        # for models like randomforest
         if hasattr(model, "feature_importances_"):
             feature_importance = pd.Series(model.feature_importances_, index=feature_names).sort_values(ascending=False)
             plt.figure(figsize=(10, 6))
@@ -69,7 +69,7 @@ def plot_feature_importance(model, feature_names):
             raise AttributeError(
                 "Model does not have coefficients or feature importances. Ensure the model is a valid regression model."
             )
-    # Plotting der Feature-Wichtigkeit
+    # plotting of the feature importance
     plt.figure(figsize=(10, 6))
     feature_importance.plot(kind='bar')
     plt.title("Feature Importance")
