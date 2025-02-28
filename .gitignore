@@ -1,10 +1,31 @@
-# Ignore data files
-#/data/
+# Ignore virtual environment
+venv/
 
-# Python bytecode files
+# Python bytecode and cache
 *.pyc
 *.pyo
 _pycache_/
 
 # Jupyter Notebook checkpoints
-.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore processed data, keep raw data
+/data/processed/
+
+# Optional: If there are large raw files you don’t want to track, add them selectively
+# /data/raw/large_file.csv
